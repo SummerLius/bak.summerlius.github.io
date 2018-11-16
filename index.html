@@ -24,7 +24,7 @@
 
 
 
-<link rel="icon" href="/favicon.ico">
+<link rel="icon" href="/images/favicon.ico">
 
 
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
@@ -35,7 +35,7 @@
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
 
 
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css">
 
 <link rel="stylesheet" href="/css/style.css">
 
@@ -107,7 +107,119 @@
         <article class="article content gallery" itemscope="" itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2018/11/16/test-my-site/" itemprop="url">样本</a>
+            <a href="/2018/11/18/样本4/" itemprop="url">样本4 - 代码示例</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2018-11-18T15:00:00.000Z" itemprop="datePublished">11月 18 2018</time>
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/样本/">样本</a>
+        </span>
+        
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <h2 id="http2-HTTP-2"><a href="#http2-HTTP-2" class="headerlink" title="http2-HTTP/2"></a>http2-HTTP/2</h2><h3 id="服务端示例"><a href="#服务端示例" class="headerlink" title="服务端示例"></a>服务端示例</h3><figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> http2 = <span class="hljs-built_in">require</span>(<span class="hljs-string">'http2'</span>);</span><br><span class="line"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> server = http2.createSecureServer(&#123;</span><br><span class="line">  key: fs.readFileSync(<span class="hljs-string">'localhost-privkey.pem'</span>),</span><br><span class="line">  cert: fs.readFileSync(<span class="hljs-string">'localhost-cert.pem'</span>)</span><br><span class="line">&#125;);</span><br><span class="line">server.on(<span class="hljs-string">'error'</span>, (err) =&gt; <span class="hljs-built_in">console</span>.error(err));</span><br><span class="line"></span><br><span class="line">server.on(<span class="hljs-string">'stream'</span>, (stream, headers) =&gt; &#123;</span><br><span class="line">  <span class="hljs-comment">// stream is a Duplex</span></span><br><span class="line">  stream.respond(&#123;</span><br><span class="line">    <span class="hljs-string">'content-type'</span>: <span class="hljs-string">'text/html'</span>,</span><br><span class="line">    <span class="hljs-string">':status'</span>: <span class="hljs-number">200</span></span><br><span class="line">  &#125;);</span><br><span class="line">  stream.end(<span class="hljs-string">'&lt;h1&gt;Hello World&lt;/h1&gt;'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">server.listen(<span class="hljs-number">8443</span>);</span><br></pre></td></tr></table></figure>
+        <p class="article-more-link">
+            <a href="/2018/11/18/样本4/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope="" itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2018/11/17/样本3/" itemprop="url">样本3 - Redis安装方式</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2018-11-17T15:00:00.000Z" itemprop="datePublished">11月 17 2018</time>
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/样本/">样本</a>
+        </span>
+        
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <h2 id="安装建议"><a href="#安装建议" class="headerlink" title="安装建议"></a>安装建议</h2><ol>
+<li>建议通过源码安装或Docker容器安装。<ul>
+<li>两者都可以安装最新Redis版本</li>
+<li>两者都可以很容易的在本机安装多个Redis服务，尤其是源码安装中提供的<code>install_server.sh</code>工具</li>
+</ul>
+</li>
+<li>官方没有提供apt-get源安装，第三方的apt源安装，Redis版本都不高</li>
+</ol>
+        <p class="article-more-link">
+            <a href="/2018/11/17/样本3/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope="" itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2018/11/16/样本2/" itemprop="url">样本2 - 《药》 - 鲁迅</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2018-11-16T15:00:00.000Z" itemprop="datePublished">11月 16 2018</time>
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/样本/">样本</a>
+        </span>
+        
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <blockquote><p>　　秋天的后半夜，月亮下去了，太阳还没有出，只剩下一片乌蓝的天；除了夜游的东西，什么都睡着。华老栓忽然坐起身，擦着火柴，点上遍身油腻的灯盏，茶馆的两间屋子里，便弥满了青白的光。</p>
+<p>　　“小栓的爹，你就去么？”是一个老女人的声音。里边的小屋子里，也发出一阵咳嗽。</p>
+<p>　　“唔。”老栓一面听，一面应，一面扣上衣服；伸手过去说，”你给我罢。” …</p>
+<footer><strong>鲁迅 《药》</strong></footer></blockquote>
+        <p class="article-more-link">
+            <a href="/2018/11/16/样本2/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope="" itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2018/11/16/样本1/" itemprop="url">样本1</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
@@ -133,7 +245,7 @@
 <blockquote class="colorquote danger">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.</blockquote>
 <div class="justified-gallery"><br><img src="https://raw.githubusercontent.com/SummerLius/note/master/assets/1.jpg" alt="Elephant"><br><img src="https://raw.githubusercontent.com/SummerLius/note/master/assets/1.jpg" alt="Dog"><br><img src="https://raw.githubusercontent.com/SummerLius/note/master/assets/1.jpg" alt="Birds"><br><img src="https://raw.githubusercontent.com/SummerLius/note/master/assets/1.jpg" alt="Cat"><br><img src="https://raw.githubusercontent.com/SummerLius/note/master/assets/1.jpg" alt="Fox"><br><img src="https://raw.githubusercontent.com/SummerLius/note/master/assets/1.jpg" alt="Horse"><br></div>
         <p class="article-more-link">
-            <a href="/2018/11/16/test-my-site/#more">阅读更多</a>
+            <a href="/2018/11/16/样本1/#more">阅读更多</a>
         </p>
     
     </div>
